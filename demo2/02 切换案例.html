@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        img{
+            position: absolute;
+        }
+    
+    </style>
+</head>
+<body>
+    
+    <img id='pic1'src="./image/1.png" alt="">
+    <img id='pic2'src="./image/2.png" alt="">
+
+    <script>
+
+        var pics =document.getElementsByTagName('img')       
+
+        pics[0].onclick = function(){
+            pics[0].style.display = 'none'
+            pics[1].style.display = 'block'
+        }
+        pics[1].onclick = function(){
+            pics[1].style.display = 'none'
+            pics[0].style.display = 'block'
+        }
+    
+    </script>
+    
+</body>
+</html>

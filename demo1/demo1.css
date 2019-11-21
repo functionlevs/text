@@ -1,0 +1,10 @@
+.box{
+  display: inline-block;
+  width: 300px;
+  height:200px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 200px;
+  color: black;
+  background-color: rgb(170, 172, 204);
+}

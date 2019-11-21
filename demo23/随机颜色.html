@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>随机颜色</title>
+  <style>
+    div{
+      float:left;
+      margin:1px 2px;
+      width:100px;
+      height:50px;
+      border:1px solid ;
+    }
+  </style>
+</head>
+<body>
+  
+  <script>
+    var obody=document.getElementsByTagName('body')[0]
+    var odiv=document.getElementsByTagName('div')
+    var str=''
+    
+    function rad(){
+      var len=odiv.length
+      var r=Math.floor(Math.random()*256)
+      var g=Math.floor(Math.random()*256)
+      var b=Math.floor(Math.random()*256)
+      var num=Math.floor(Math.random()*11)
+        str+='<div style="background-color:rgb('+r+','+g+','+b+')"></div>'
+        document.body.innerHTML=str
+        
+    }
+    
+    setInterval(rad,1000)
+  </script>
+</body>
+</html>

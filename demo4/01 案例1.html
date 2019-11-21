@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+    
+        *{
+            margin:0;
+            padding:0;
+        }
+        #wrap{
+            width: 500px;
+            height: 40px;
+            background-color:#f0f;
+            margin:50px auto 0;
+            padding:10px;
+        }
+        .title img{
+            display:none;
+            position: absolute;
+            width:40px;
+            height:40px;
+            border-radius:50%;
+        }
+        .title img.active{
+            display:block;
+        }
+        .content{
+            display:none;
+            float:left;
+            width:300px;
+            /* height:30px; */
+            /* background-color: #0ff; */
+            margin-left:50px;
+        }
+        .content > input{
+            width:210px;
+            height:32px;
+        }
+        .content .btn{
+            float:right;
+            width:60px;
+            height:36px;
+        }
+        .add{
+            float:right;
+            width:70px;
+            height:35px;
+            font-size:30px;
+        }
+        .list{
+            display:none;
+            width: 520px;
+            /* height:100px; */
+            border:2px solid #f0f;
+            margin:50px auto 0;
+        }
+        .list li{
+            list-style:none;
+            height:50px;
+            border:1px dashed #ccc;
+            padding-bottom:5px;
+        }
+        .list li img{
+            float: left;
+            width:50px;
+            height:50px;
+            border-radius:50%;
+        }
+        .list p {
+            float:left;
+            line-height:50px;
+            text-indent:20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="wrap">
+
+        <div class="title">
+            <img src="images/01.jpg" class='active' alt="">
+            <img src="images/02.jpg" alt="">
+            <div class="content">
+                <input type="text">
+                <button class="btn">发表</button>
+            </div>
+        </div>
+        <button class="add"> + </button>
+    </div>
+    <ul class="list">
+        <!-- <li><img src="images/01.jpg" alt=""><p>这里就是我的内容</p></li> -->
+	</ul>
+    <script>
+        var button= document.getElementsByClassName('add')[0],
+            // img= document.getElementsByTagName('img'),
+            content= document.querySelector('.content'),
+            txt= document.querySelector('.content input'),
+            btn= document.querySelector('.btn'),
+            list= document.querySelector('.list'),
+            title= document.querySelector('.title'),
+            header= document.querySelectorAll('.title img'),
+            mark= true,
+            // picsrc= header[0].src;
+           
+            button.onclick= function(){
+                if(mark){
+                    content.style.display= 'block'
+                    mark= false
+                    }
+                else {
+                    content.style.display= 'none'
+                    mark= true
+                }}
+                // img[0].onclick= function(){
+                //     img[0].className= ''
+                //     img[1].className= 'active'
+                //     picsrc=img[1].src
+                // }
+                // img[1].onclick= function(){
+                //     img[0].className= 'active'
+                //     img[1].className= ''
+                //     picsrc= img[0].src
+                // }
+                
+            header[num].onclick= function(){
+                     var num= 0;
+                    header[num].className= ''
+                    num++
+                    if(num > 1){num= 0}
+                    header[num].className= 'active'
+                    // picsrc= header[num].src      
+            }
+                btn.onclick= function(){
+                    var str= input.value
+                    if(str=== '')
+                    list.style.display= 'block'
+                    txt.style.value= str
+                    list.innerHTML+= '<li><img src='+picsrc+' alt=""><p>'+txt.value+'</p></li>'
+                    txt.value= ''  
+            }
+ 
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+         
+    *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+        }
+        #wrap{
+            position: relative;
+			width: 529px;
+            height: 300px;
+            /* border:2px solid #000; */
+            margin:100px auto 0;
+            user-select: none;
+        }
+        ul li.active{
+            display:block;
+        }
+        ul li{
+            display: none;
+            position: absolute;
+			width: 529px;
+            height: 300px;
+        }
+        .btn{
+            position: absolute;
+            width:25px;
+            height: 50px;
+            background-color: rgba(0,0,0,0.5);
+            color:#fff;
+            font-size:20px;
+            text-align:center;
+            line-height:50px;
+            cursor: pointer;
+            top:calc( 50% - 25px );
+        }
+        .right{
+            right:0;
+        }
+        .checkBtn{
+            position:absolute;
+            top:-30px;
+            /* width:75px; */
+            height:30px;
+        }
+        .checkBtn span{
+            float:left;
+            width: 75px;
+            height:30px;
+            background-color: #ccc;
+            font-size:14px;
+			color:#fff;
+            text-align:center;
+            line-height:30px;
+			cursor:pointer;
+        }
+        .checkBtn span.on{
+            background-color:#90f;
+        }
+        p.description{
+            position:absolute;
+            width:100%;
+            height:30px;
+            background-color: rgba(0,0,0,0.3);
+            text-align:center;
+            line-height: 30px;
+			font-weight:bold;
+			color:#fff;
+        }
+        p.top{
+            top:0;
+        }
+        p.bottom{
+            bottom:0;
+        }
+        
+    
+    </style>
+</head>
+<body>
+
+        <div id="wrap">
+            <div class="checkBtn">
+                <span class='on'> 循环切换 </span>
+                <span> 单边切换 </span>
+            </div>
+            <ul>
+                <li class='active'><img src="images/1.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="images/2.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="images/3.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="images/4.jpg" alt="" width='100%' height='100%'></li>
+                <li><img src="images/5.jpg" alt="" width='100%' height='100%'></li>
+            </ul> 
+            <div class="btn left"> < </div>
+            <div class="btn right"> > </div>
+            <p class="description top"> <span class='text'>1</span>/5 </p>
+            <p class="description bottom"> A </p>
+        </div>
+        
+
+        <script>
+            var circula= document.getElementsByTagName('span')[0],
+                unilateral= document.getElementsByTagName('span')[1],
+                oli= document.getElementsByTagName('li'),
+                left= document.getElementsByClassName('btn')[0],
+                right= document.getElementsByClassName('btn')[1],
+                txt= document.getElementsByClassName('text')[0],
+                bottom= document.getElementsByClassName('bottom')[0],
+                 mark= true,    //开关通常用ture和false
+                 flag= 0,       //下标标记
+                 arr= ['A','B','C','D','E'];   //bottom内的变化值
+           
+           unilateral.onclick= function(){  //单边切换
+               this.className= 'on'
+               circula.className= ''
+               mark= false //属于单边切换的开关
+           }
+           circula.onclick= function(){ //循环切换
+               this.className= 'on'
+               unilateral.className= ''
+               mark= true   //设置循环切换的开关
+           }  
+               
+           
+            right.onclick= function(){  //右按钮点击事件
+                       oli[flag].className= '' //当前页为空
+                       flag++   //下一页下标
+                if(mark){   //循环切换执行代码块
+                        if(flag> 4){flag= 0} 
+                        oli[flag].className= 'active'
+                        txt.innerHTML= flag+1
+                        bottom.innerHTML= arr[flag]
+                }
+                else{   //单边切换执行代码块
+                        if(flag> 4){flag= 4} 
+                        oli[flag].className= 'active'
+                        txt.innerHTML= flag+1
+                        bottom.innerHTML= arr[flag]        
+                    } 
+                }
+            left.onclick= function(){   //左按钮点击事件
+                        oli[flag].className=''
+                        flag--
+                if(mark){   //循环切换执行代码块
+                        if(flag< 0){flag= 4}
+                        oli[flag].className= 'active'
+                        txt.innerHTML= flag+1
+                        bottom.innerHTML= arr[flag]
+                }
+                else{
+                        if(flag< 0){flag=0}
+                        oli[flag].className= 'active'
+                        txt.innerHTML= flag+1
+                        bottom.innerHTML= arr[flag]
+                }
+
+
+            }
+        </script>
+      
+    
+</body>
+</html>
